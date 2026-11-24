@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080b14">
+
+    <title>Kaizen Ryue | Official Profil</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background-overlay"></div>
+
+    <!-- Animated Particles -->
+    <canvas id="particles"></canvas>
+
+    <main class="container">
+
+        <section class="profile-card">
+
+            <!-- Banner -->
+            <div class="banner">
+                <div class="banner-overlay"></div>
+            </div>
+
+            <!-- Profile -->
+            <div class="profile-image">
+                <img src="image/profil.jpg" alt="Jostycoon">
+            </div>
+
+            <div class="profile-info">
+
+                <h1>Kaizen Ryue</h1>
+
+                <div class="verified">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Official</span>
+                </div>
+
+                <p class="description">
+                    Selamat datang di website profil media sosial Kaizen Ryue.</p>                </p>
+
+            </div>
+
+            <!-- Social Media -->
+            <section class="community-section">
+
+    <div class="community-header">
+    </div>
+
+    <div class="community-links">
+
+                <h2>COMMUNITY & SOSIAL</h2>
+
+                <div class="social-links">
+
+                    <a href="https://youtube.com/@yukichan_kawaine"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link youtube">
+
+                        <div class="social-icon">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+
+                        <span>YouTube</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                    </a>
+
+                    <a href="https://tiktok.com/@suaminya_negev"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="social-link tiktok">
+
+                        <div class="social-icon">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+
+                        <span>TikTok</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                    </a>
+
+                  <!-- COMMUNITY & SOCIAL -->
+
+        <!-- WhatsApp Group -->
+        <a href="https://chat.whatsapp.com/FogFEkwSiCwE2OX5M39vvE?s=cl&p=a&iam=2"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="community-link whatsapp-group">
+
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp Group</span>
+            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- Discord Account -->
+        <a href="https://discord.gg/sD9twnYx"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="community-link discord-account">
+
+            <i class="fa-brands fa-discord"></i>
+            <span>Discord Account</span>
+            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- Discord Community -->
+        <a href="https://discord.gg/P8hhbzWTk"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="community-link discord-community">
+
+            <i class="fa-brands fa-discord"></i>
+            <span>Discord Community</span>
+            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+        <!-- Pinterest -->
+        <a href="https://pin.it/3r0ulZ1Dm"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="community-link pinterest">
+
+            <i class="fa-brands fa-pinterest"></i>
+            <span>Pinterest</span>
+            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+        </a>
+
+    </div>
+</section>
+<footer class="profile-footer">
+    <p>
+        © <span id="year"></span> Kaizen Ryue
+    </p>
+
+    <span class="footer-credit">
+        Designed with core
+    </span>
+</footer>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>              
+            </section>
+        </section>
+    </main>
+
+    <!-- Music Player -->
+    <div class="music-player">
+
+        <audio id="backgroundMusic" loop preload="none">
+            <source src="assets/music.mp3" type="audio/mpeg">
+        </audio>
+
+        <button id="musicToggle" class="music-button"
+                aria-label="Play music">
+            <i class="fa-solid fa-play"></i>
+        </button>
+
+        <div class="music-details">
+            <span>BACKGROUND MUSIC</span>
+            <input
+                type="range"
+                id="volumeControl"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.5"
+                aria-label="Volume"
+            >
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

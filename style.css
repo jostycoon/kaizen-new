@@ -1,0 +1,869 @@
+
+/* ==================================
+   KAIZEN RYUE - NEON GLASS DESIGN
+================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple: #a855f7;
+    --blue: #38bdf8;
+    --background: #080b14;
+    --text: #ffffff;
+    --muted: #a1a1aa;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    overflow-x: hidden;
+    isolation: isolate;
+}
+
+/* ==================================
+   BACKGROUND
+================================== */
+
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            rgba(5, 8, 18, 0.55),
+            rgba(5, 8, 18, 0.72)
+        ),
+        url("image/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* ==================================
+   PARTICLE CANVAS
+================================== */
+
+#particles {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* ==================================
+   MAIN CONTAINER
+================================== */
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px 16px;
+}
+
+/* ==================================
+   GLASS PROFILE CARD
+================================== */
+
+.profile-card {
+    width: 100%;
+    max-width: 430px;
+
+    overflow: hidden;
+    position: relative;
+
+    background: rgba(12, 15, 32, 0.38);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    animation: appear 0.9s ease;
+}
+
+/* ==================================
+   BANNER
+================================== */
+
+.banner {
+    height: 175px;
+    width: 100%;
+
+    background:
+        url("image/banner.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        transparent,
+        rgba(10,13,25,0.5)
+    );
+}
+
+/* ==================================
+   PROFILE IMAGE GLOW
+================================== */
+
+.profile-image {
+    width: 125px;
+    height: 125px;
+
+    margin: -65px auto 0;
+
+    position: relative;
+    z-index: 2;
+
+    border-radius: 50%;
+    padding: 5px;
+
+    background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue),
+        var(--purple)
+    );
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,0.7),
+        0 0 35px rgba(56,189,248,0.45);
+
+    animation: profileGlow 3s ease-in-out infinite;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+    border: 4px solid #111827;
+}
+
+/* ==================================
+   PROFILE INFORMATION
+================================== */
+
+.profile-info {
+    text-align: center;
+    padding: 15px 25px 10px;
+}
+
+.profile-info h1 {
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    text-shadow: 0 0 15px rgba(168,85,247,0.5);
+}
+
+.verified {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 7px;
+
+    color: var(--blue);
+    font-size: 12px;
+}
+
+.description {
+    color: #d1d5db;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    margin-top: 16px;
+}
+
+/* ==================================
+   SOCIAL SECTION
+================================== */
+
+.social-section {
+    padding: 20px 25px 25px;
+}
+
+.social-section h2 {
+    text-align: center;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    color: #d4d4d8;
+
+    margin-bottom: 18px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ==================================
+   SOCIAL BUTTONS
+================================== */
+
+.social-link {
+    width: 100%;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 10px 15px;
+
+    text-decoration: none;
+    color: white;
+
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+
+    transition: 0.3s ease;
+}
+
+.social-link span {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.1);
+    font-size: 19px;
+}
+
+.arrow {
+    font-size: 12px;
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+
+    background: rgba(168,85,247,0.18);
+
+    border-color: var(--purple);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,0.2);
+}
+
+.social-link:hover .arrow {
+    color: white;
+    transform: translate(3px,-3px);
+}
+
+.youtube .social-icon {
+    color: #ff4545;
+}
+
+.tiktok .social-icon {
+    color: #38bdf8;
+}
+
+.github .social-icon {
+    color: white;
+}
+
+/* ==================================
+   FLOATING MUSIC PLAYER
+================================== */
+
+.music-player {
+    position: fixed;
+    z-index: 5;
+
+    bottom: 22px;
+    right: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 15px;
+
+    background: rgba(15,18,35,0.75);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(168,85,247,0.4);
+    border-radius: 50px;
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,0.2);
+}
+
+.music-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue)
+    );
+
+    cursor: pointer;
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,0.7);
+}
+
+.music-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.music-details span {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+#volumeControl {
+    width: 90px;
+    accent-color: var(--purple);
+    cursor: pointer;
+}
+
+/* ==================================
+   ANIMATIONS
+================================== */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes profileGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 15px rgba(168,85,247,0.5),
+            0 0 25px rgba(56,189,248,0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px rgba(168,85,247,0.9),
+            0 0 45px rgba(56,189,248,0.7);
+    }
+}
+
+/* ==================================
+   MOBILE RESPONSIVE
+================================== */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 25px 14px;
+    }
+
+    .profile-card {
+        border-radius: 20px;
+    }
+
+    .banner {
+        height: 155px;
+    }
+
+    .profile-image {
+        width: 115px;
+        height: 115px;
+        margin-top: -58px;
+    }
+
+    .profile-info h1 {
+        font-size: 25px;
+    }
+
+    .social-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .music-player {
+        bottom: 15px;
+        right: 12px;
+    }
+}
+
+/* Reduce motion for accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* COMMUNITY SECTION */
+
+.community-section {
+    width: 100%;
+    margin-top: 28px;
+}
+
+.community-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.community-header h2 {
+    color: #ffffff;
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+
+.community-header p {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+}
+
+.community-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.community-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 16px;
+    border-radius: 14px;
+
+    color: white;
+    text-decoration: none;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    transition: all 0.3s ease;
+}
+
+.community-link > i:first-child {
+    font-size: 21px;
+    width: 25px;
+    text-align: center;
+}
+
+.community-link span {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.link-arrow {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.community-link:hover {
+    transform: translateY(-3px);
+    background: rgba(139,92,246,0.15);
+    border-color: #a78bfa;
+    box-shadow: 0 0 18px rgba(139,92,246,0.2);
+}
+
+/* BRAND COLORS */
+
+.whatsapp-group > i:first-child {
+    color: #25D366;
+}
+
+.discord-account > i:first-child,
+.discord-community > i:first-child {
+    color: #5865F2;
+}
+
+.pinterest > i:first-child {
+    color: #E60023;
+}
+
+
+/* =====================================
+   JOSTYCOON - SMOOTH GLASS UI
+===================================== */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Main container */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 45px 16px;
+    box-sizing: border-box;
+}
+
+/* Profile card */
+.profile-card {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 25px;
+    overflow: hidden;
+
+    background: rgba(15, 17, 38, 0.58);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.14);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.3),
+        0 0 25px rgba(139,92,246,0.08);
+
+    animation: cardEntrance 0.9s cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* Opening animation */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Profile image */
+.profile-image,
+.profile-avatar {
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.profile-image:hover,
+.profile-avatar:hover {
+    transform: scale(1.04);
+    filter: brightness(1.1);
+}
+
+/* Section spacing */
+.profile-section,
+.social-section,
+.community-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.social-section,
+.community-section {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Section heading */
+.community-header,
+.store-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.community-header h2,
+.store-header h2 {
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+/* Social and community buttons */
+.social-link,
+.community-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    min-height: 52px;
+    box-sizing: border-box;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Hover */
+.social-link:hover,
+.community-link:hover {
+    transform: translateY(-3px);
+    background: rgba(139,92,246,0.16);
+    border-color: rgba(167,139,250,0.65);
+    box-shadow: 0 7px 22px rgba(139,92,246,0.13);
+}
+
+/* Touch feedback */
+.social-link:active,
+.community-link:active,
+.buy-button:active,
+.music-button:active {
+    transform: scale(0.96);
+}
+
+/* Community spacing */
+.community-section {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.community-links {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+/* Scroll reveal */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s cubic-bezier(.2,.7,.2,1);
+}
+
+[data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ripple effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    background: rgba(255,255,255,0.25);
+    transform: scale(0);
+    animation: rippleEffect 0.55s ease-out forwards;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* Music button */
+.music-button {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(139,92,246,0.4);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 22px 12px;
+    }
+
+    .profile-card {
+        max-width: 100%;
+        border-radius: 22px;
+    }
+
+    .social-section,
+    .community-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* Tablet and desktop */
+@media (min-width: 768px) {
+    .container {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .profile-card {
+        max-width: 410px;
+    }
+}
+
+/* Accessibility: reduce animation */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* ==================================
+   FOOTER INSIDE PROFILE CARD
+================================== */
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-footer {
+    position: relative !important;
+
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    transform: none !important;
+    float: none !important;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin: 28px 0 0;
+    padding: 20px 12px 24px;
+
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.12);
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    color: rgba(255,255,255,0.7);
+
+    z-index: 1;
+}
+
+.profile-footer p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.profile-footer .footer-credit {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #c4b5fd;
+}
+
+/* Footer entrance animation */
+.profile-footer {
+    animation: footerFade 0.8s ease both;
+}
+
+@keyframes footerFade {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
